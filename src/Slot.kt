@@ -1,4 +1,4 @@
-data class Slot(var filled: Boolean, private val slotNumber: Int) {
+data class Slot(var filled: Boolean, val slotNumber: Int) {
 
     val adjacencyLookup = hashMapOf<Int, Int>()
 
@@ -7,13 +7,12 @@ data class Slot(var filled: Boolean, private val slotNumber: Int) {
             // initialize illegal jumps (walls of the board) with -1
             adjacencyLookup[i] = -1
         }
-        /* write down into the lookup table every adjacent slot number
-           for the input slot based on this 0-5 relative direction system:
+        /* write into the lookup table every adjacent slot number for the input
+           slot based on this 0-5 direction system:
 
                                        2  3
                                      1 slot 4
                                        0  5
-
         */
         when (slotNumber) {
             0 -> {
@@ -105,7 +104,7 @@ data class Slot(var filled: Boolean, private val slotNumber: Int) {
         }
     }
 
-    fun isFilled(): Boolean {
+    fun hasPeg(): Boolean {
         return filled
     }
 }

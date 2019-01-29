@@ -1,19 +1,19 @@
 fun main() {
-    val board = mutableListOf<Slot>()
+    val initializer = mutableListOf<Slot>()
     for (i in IntRange(0, 14))
-        board.add(Slot(true, i))
+        initializer.add(i, Slot(true, i))
+    initializer[0].filled = false
 
-    // change the board index here to change the start position
-    board[1].filled = false
+    val initialBoard = Board(initializer)
 
-    val gameboard = Game(board)
-    gameboard.print(board)
-    if (gameboard.solveWithDFS(board)) {
+    val gameboard = Game(initialBoard)
+    gameboard.print(initialBoard)
+    if (gameboard.solvableWithDepthFirstSearch(initialBoard)) {
         println()
-        println("Checked ${gameboard.numberOfBoardsCreated} jumps.\nSolution requires ${gameboard.numberOfCorrectBoards} jumps.")
-//        println("\nSolution:")
-//        for (i in gameboard.boardList.indices) {
-//            gameboard.print(gameboard.boardList[i])
-//        }
+        println("Checked ${gameboard.numberOfBoardsCreated} jumps.\nSolution requires ${gameboard.numberOfCorrectBoards - 1} jumps.")
+        println("\nSolution:")
+        for (i in gameboard.boardList.indices) {
+            gameboard.print(gameboard.boardList[i])
+        }
     }
 }
