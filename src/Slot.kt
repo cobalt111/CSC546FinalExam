@@ -1,105 +1,113 @@
-data class Slot(var filled: Boolean, val slotNumber: Int) {
+class Slot(var filled: Boolean, slotNumber: Int) {
 
-    val adjacencyLookup = hashMapOf<Int, Int>()
+    val adjacentSlotNumbers = hashMapOf<Direction, Int>()
+
+    companion object {
+        const val NUMBER_OF_SLOTS = 15
+    }
 
     init {
-        for (i in IntRange(0, 5)) {
+        for (direction in Direction.values()) {
             // initialize illegal jumps (walls of the board) with -1
-            adjacencyLookup[i] = -1
+            adjacentSlotNumbers[direction] = -1
         }
-        /* write into the lookup table every adjacent slot number for the input
-           slot based on this 0-5 direction system:
 
-                                       2  3
-                                     1 slot 4
-                                       0  5
+        /* Slot numbers are defined as such:
+
+                             0
+                           1   2
+                         3   4   5
+                       6   7   8   9
+                     10  11  12  14  15
+
         */
+
         when (slotNumber) {
             0 -> {
-                adjacencyLookup[0] = 1
-                adjacencyLookup[5] = 2
+                adjacentSlotNumbers[Direction.LeftDown] = 1
+                adjacentSlotNumbers[Direction.RightDown] = 2
             }
             1 -> {
-                adjacencyLookup[0] = 3
-                adjacencyLookup[3] = 0
-                adjacencyLookup[5] = 4
+                adjacentSlotNumbers[Direction.LeftDown] = 3
+                adjacentSlotNumbers[Direction.RightUp] = 0
+                adjacentSlotNumbers[Direction.RightDown] = 4
             }
             2 -> {
-                adjacencyLookup[0] = 4
-                adjacencyLookup[2] = 0
-                adjacencyLookup[5] = 5
+                adjacentSlotNumbers[Direction.LeftDown] = 4
+                adjacentSlotNumbers[Direction.LeftUp] = 0
+                adjacentSlotNumbers[Direction.RightDown] = 5
             }
             3 -> {
-                adjacencyLookup[0] = 6
-                adjacencyLookup[3] = 1
-                adjacencyLookup[4] = 4
-                adjacencyLookup[5] = 7
+                adjacentSlotNumbers[Direction.LeftDown] = 6
+                adjacentSlotNumbers[Direction.RightUp] = 1
+                adjacentSlotNumbers[Direction.Right] = 4
+                adjacentSlotNumbers[Direction.RightDown] = 7
             }
             4 -> {
-                adjacencyLookup[0] = 7
-                adjacencyLookup[1] = 3
-                adjacencyLookup[2] = 1
-                adjacencyLookup[3] = 2
-                adjacencyLookup[4] = 5
-                adjacencyLookup[5] = 8
+                adjacentSlotNumbers[Direction.LeftDown] = 7
+                adjacentSlotNumbers[Direction.Left] = 3
+                adjacentSlotNumbers[Direction.LeftUp] = 1
+                adjacentSlotNumbers[Direction.RightUp] = 2
+                adjacentSlotNumbers[Direction.Right] = 5
+                adjacentSlotNumbers[Direction.RightDown] = 8
             }
             5 -> {
-                adjacencyLookup[0] = 8
-                adjacencyLookup[1] = 4
-                adjacencyLookup[2] = 2
-                adjacencyLookup[5] = 9
+                adjacentSlotNumbers[Direction.LeftDown] = 8
+                adjacentSlotNumbers[Direction.Left] = 4
+                adjacentSlotNumbers[Direction.LeftUp] = 2
+                adjacentSlotNumbers[Direction.RightDown] = 9
             }
             6 -> {
-                adjacencyLookup[0] = 10
-                adjacencyLookup[3] = 3
-                adjacencyLookup[4] = 7
+                adjacentSlotNumbers[Direction.LeftDown] = 10
+                adjacentSlotNumbers[Direction.RightUp] = 3
+                adjacentSlotNumbers[Direction.Right] = 7
             }
             7 -> {
-                adjacencyLookup[0] = 11
-                adjacencyLookup[1] = 6
-                adjacencyLookup[2] = 3
-                adjacencyLookup[3] = 4
-                adjacencyLookup[4] = 8
-                adjacencyLookup[5] = 12
+                adjacentSlotNumbers[Direction.LeftDown] = 11
+                adjacentSlotNumbers[Direction.Left] = 6
+                adjacentSlotNumbers[Direction.LeftUp] = 3
+                adjacentSlotNumbers[Direction.RightUp] = 4
+                adjacentSlotNumbers[Direction.Right] = 8
+                adjacentSlotNumbers[Direction.RightDown] = 12
             }
             8 -> {
-                adjacencyLookup[0] = 12
-                adjacencyLookup[1] = 7
-                adjacencyLookup[2] = 4
-                adjacencyLookup[3] = 5
-                adjacencyLookup[4] = 9
-                adjacencyLookup[5] = 13
+                adjacentSlotNumbers[Direction.LeftDown] = 12
+                adjacentSlotNumbers[Direction.Left] = 7
+                adjacentSlotNumbers[Direction.LeftUp] = 4
+                adjacentSlotNumbers[Direction.RightUp] = 5
+                adjacentSlotNumbers[Direction.Right] = 9
+                adjacentSlotNumbers[Direction.RightDown] = 13
             }
             9 -> {
-                adjacencyLookup[0] = 13
-                adjacencyLookup[1] = 8
-                adjacencyLookup[2] = 5
-                adjacencyLookup[5] = 14
+                adjacentSlotNumbers[Direction.LeftDown] = 13
+                adjacentSlotNumbers[Direction.Left] = 8
+                adjacentSlotNumbers[Direction.LeftUp] = 5
+                adjacentSlotNumbers[Direction.RightDown] = 14
             }
             10 -> {
-                adjacencyLookup[3] = 6
-                adjacencyLookup[4] = 11
+                adjacentSlotNumbers[Direction.RightUp] = 6
+                adjacentSlotNumbers[Direction.Right] = 11
             }
             11 -> {
-                adjacencyLookup[1] = 10
-                adjacencyLookup[3] = 7
-                adjacencyLookup[4] = 12
+                adjacentSlotNumbers[Direction.Left] = 10
+                adjacentSlotNumbers[Direction.RightUp] = 7
+                adjacentSlotNumbers[Direction.Right] = 12
             }
             12 -> {
-                adjacencyLookup[1] = 11
-                adjacencyLookup[2] = 7
-                adjacencyLookup[3] = 8
-                adjacencyLookup[4] = 13
+                adjacentSlotNumbers[Direction.Left] = 11
+                adjacentSlotNumbers[Direction.LeftUp] = 7
+                adjacentSlotNumbers[Direction.RightUp] = 8
+                adjacentSlotNumbers[Direction.Right] = 13
             }
             13 -> {
-                adjacencyLookup[1] = 12
-                adjacencyLookup[2] = 8
-                adjacencyLookup[3] = 9
-                adjacencyLookup[4] = 14
+                adjacentSlotNumbers[Direction.Left] = 12
+                adjacentSlotNumbers[Direction.LeftUp] = 8
+                adjacentSlotNumbers[Direction.RightUp] = 9
+                adjacentSlotNumbers[Direction.Right] = 14
             }
             14 -> {
-                adjacencyLookup[1] = 13
-                adjacencyLookup[2] = 9
+                adjacentSlotNumbers[Direction.Left] = 13
+                adjacentSlotNumbers[Direction.LeftUp] = 9
             }
         }
     }
