@@ -11,15 +11,15 @@ class Game(initialBoardState: Board) {
         boardList.push(initialBoardState.copy(initialBoardState.slots))
     }
 
-    fun solvableWithDepthFirstSearch(board: Board): Boolean {
-        if (numberOfPegs == 1) return true
+    fun solvableWithDepthFirstSearch(board: Board, initialEmptySlotNumber: Int): Boolean {
+        if (numberOfPegs == 1 && board.slots[initialEmptySlotNumber].hasPeg()) return true
         else {
             for (slotNumber in IntRange(0, 14)) {
                 if (board.slots[slotNumber].hasPeg()) {
                     for (direction in IntRange(0, 5)) {
                         if (jumpable(board, board.slots[slotNumber], direction)) {
                             jump(board, slotNumber, direction)
-                            if (solvableWithDepthFirstSearch(board)) return true
+                            if (solvableWithDepthFirstSearch(board, initialEmptySlotNumber)) return true
                             else undoJump(board, slotNumber, direction)
                         }
                     }
@@ -28,32 +28,6 @@ class Game(initialBoardState: Board) {
             return false
         }
     }
-
-//    fun solvableWithBreadthFirstSearch(board: MutableList<Slot>): Boolean {
-//        if (numberOfPegs == 1) return true
-//        else {
-//            for (searchDepth in IntRange(1, 14)) {
-//                for (slotNumber in IntRange(0, 14)) {
-//                    if (board.slots[slotNumber].hasPeg()) {
-//                        for (direction in IntRange(0, 5)) {
-//                            if (jumpable(board, board.slots[slotNumber], direction)) {
-//                                jump(board, slotNumber, direction)
-//                                if (numberOfPegs == 1) return true
-//                                else undoJump(board, slotNumber, direction)
-//                            }
-//                        }
-//                    }
-//                }
-//                for (slotNumber in IntRange(0, 14))
-//            }
-//
-//            if (searchDepth <= maxSearchDepth) {
-//                searchDepth++
-//                solvableWithBreadthFirstSearch(board)
-//            }
-//            return false
-//        }
-//    }
 
     private fun jump(board: Board, slotNumber: Int, direction: Int) {
         numberOfBoardsCreated++
