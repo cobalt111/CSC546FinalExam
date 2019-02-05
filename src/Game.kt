@@ -5,13 +5,13 @@ class Game(initialBoardState: Board) {
     var boardList = Stack<Board>()
     var board = initialBoardState
     var numberOfPegs = 14
-    var totalNumberOfJumps = 1
+    var totalNumberOfJumps = 0
     var numberOfCorrectBoards = 1
     private val initialEmptySlotNumber = initialBoardState.initialEmptySlotNumber
 
 
     init {
-        boardList.push(initialBoardState)
+        boardList.push(initialBoardState.copy())
     }
 
     fun solvableWithDepthFirstSearch(): Boolean {
@@ -46,7 +46,7 @@ class Game(initialBoardState: Board) {
         board.slots[originSlot.adjacentSlotNumbers[direction]!!].filled = false
         // Slot where the jumping peg came from
         originSlot.filled = false
-        boardList.push(Board(null, board))
+        boardList.push(Board(null, board).copy())
         board.print()
     }
 

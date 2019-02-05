@@ -10,7 +10,7 @@
 */
 
 fun main() {
-    val initialEmptySlotNumber = 14
+    val initialEmptySlotNumber = 0
 
     val game = Game(Board(initialEmptySlotNumber, null))
     game.board.print()

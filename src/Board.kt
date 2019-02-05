@@ -2,7 +2,13 @@ data class Board(val initialEmptySlotNumber: Int?, val board: Board?) {
     var slots = mutableListOf<Slot>()
 
     init {
-        if (board != null) slots = board.slots
+        if (board != null) {
+            for (slotNumber in IntRange(0, Slot.NUMBER_OF_SLOTS)) {
+                if (board.slots[slotNumber].filled)
+                    slots.add(Slot(true, slotNumber))
+                else slots.add(Slot(false, slotNumber))
+            }
+        }
         else {
             for (slotNumber in IntRange(0, Slot.NUMBER_OF_SLOTS)) {
                 if (initialEmptySlotNumber != null && slotNumber == initialEmptySlotNumber)
