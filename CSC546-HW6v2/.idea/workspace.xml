@@ -36,11 +36,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/kotlin/Driver.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="576">
-              <caret line="114" selection-start-line="114" selection-end-line="114" />
-              <folding>
-                <element signature="n#!!block;n#DataPlot#0;n#!!block;n#main#0" />
-              </folding>
+            <state relative-caret-position="2031">
+              <caret line="124" column="9" selection-start-line="124" selection-start-column="9" selection-end-line="124" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -48,8 +45,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/kotlin/Dataset.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-86">
-              <caret line="24" column="35" selection-start-line="24" selection-start-column="35" selection-end-line="24" selection-end-column="35" />
+            <state relative-caret-position="296">
+              <caret line="37" column="41" selection-start-line="37" selection-start-column="41" selection-end-line="37" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -62,8 +59,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/kotlin/Centroid.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="6" column="31" lean-forward="true" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />
+            <state relative-caret-position="270">
+              <caret line="15" column="33" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -87,9 +84,9 @@
         <option value="$PROJECT_DIR$/src/main/kotlin/Coordinate.kt" />
         <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/src/main/kotlin/Plot.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/Centroid.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/Dataset.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/Driver.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/Centroid.kt" />
       </list>
     </option>
   </component>
@@ -202,7 +199,8 @@
       <workItem from="1552858562125" duration="12530000" />
       <workItem from="1552875466547" duration="3960000" />
       <workItem from="1552879936430" duration="484000" />
-      <workItem from="1552918092335" duration="1887000" />
+      <workItem from="1552918092335" duration="2941000" />
+      <workItem from="1552929066513" duration="236000" />
     </task>
     <task id="LOCAL-00001" summary="working calculator, need way to plot now">
       <created>1552863545542</created>
@@ -239,17 +237,24 @@
       <option name="project" value="LOCAL" />
       <updated>1552879981960</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="minor warning fixes">
+      <created>1552920023196</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1552920023196</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18861000" />
+    <option name="totallyTimeSpent" value="19915000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="36" y="23" width="1644" height="1027" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49920255" visible="true" weight="0.15855181" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49920255" visible="true" weight="0.16042447" />
       <window_info id="Structure" order="1" sideWeight="0.50079745" side_tool="true" weight="0.15293384" />
       <window_info id="Designer" order="2" />
       <window_info id="Learn" order="3" />
@@ -295,7 +300,8 @@
     <MESSAGE value="graphs updated, able to plot, need to make centroids easier to see" />
     <MESSAGE value="added k=3 function, just need to verify 1d graphs" />
     <MESSAGE value="put plotter in iterator function" />
-    <option name="LAST_COMMIT_MESSAGE" value="put plotter in iterator function" />
+    <MESSAGE value="minor warning fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="minor warning fixes" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="editorHistoryManager">
@@ -322,30 +328,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/Centroid.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="18" column="64" selection-start-line="18" selection-start-column="64" selection-end-line="18" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/kotlin/Coordinate.kt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/Centroid.kt">
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/Dataset.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" column="31" lean-forward="true" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />
+        <state relative-caret-position="166">
+          <caret line="37" column="41" lean-forward="true" selection-start-line="37" selection-start-column="41" selection-end-line="37" selection-end-column="41" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/kotlin/Driver.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="576">
-          <caret line="114" selection-start-line="114" selection-end-line="114" />
-          <folding>
-            <element signature="n#!!block;n#DataPlot#0;n#!!block;n#main#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/Dataset.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-86">
-          <caret line="24" column="35" selection-start-line="24" selection-start-column="35" selection-end-line="24" selection-end-column="35" />
+        <state relative-caret-position="744">
+          <caret line="124" column="9" selection-start-line="124" selection-start-column="9" selection-end-line="124" selection-end-column="9" />
         </state>
       </provider>
     </entry>

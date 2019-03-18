@@ -5,21 +5,17 @@ class Centroid(var coordinate: Coordinate, private val isTwoDimensional: Boolean
     fun updateCoordinate() {
         val mean = Coordinate(0.0, 0.0)
         if (isTwoDimensional) {
-            var xMean = 0.0
-            var yMean = 0.0
-            for (currentPoint in (0 until closestDataPoints.size)) {
-                xMean += closestDataPoints[currentPoint].x
-                yMean += closestDataPoints[currentPoint].y
+            for (currentPoint in closestDataPoints) {
+                mean.x += currentPoint.x
+                mean.y += currentPoint.y
             }
-            mean.x = xMean / closestDataPoints.size
-            mean.y = yMean / closestDataPoints.size
+            mean.x = mean.x / closestDataPoints.size
+            mean.y = mean.y / closestDataPoints.size
         }
         else {
-            var xMean = 0.0
-            for (currentPoint in 0 until closestDataPoints.size) {
-                xMean += closestDataPoints[currentPoint].x
-            }
-            mean.x = xMean / closestDataPoints.size
+            for (currentPoint in closestDataPoints)
+                mean.x += currentPoint.x
+            mean.x = mean.x / closestDataPoints.size
         }
         coordinate = mean
     }

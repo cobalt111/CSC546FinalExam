@@ -114,12 +114,14 @@ fun main() {
         dataset1D.updateCentroidMeans()
         dataset2D.updateCentroidMeans()
 
-        // Plot the datasets
-        val plot1D = DataPlot(false, k, stage)
-        val plot2D = DataPlot(true, k, stage)
-        plot1D.setSize(800, 500)
-        plot1D.show()
-        plot2D.setSize(800, 500)
-        plot2D.show()
+        if (stage == 1 || stage == 10) {
+            // Plot the datasets
+            val plot1D = DataPlot(false, k, stage)
+            val plot2D = DataPlot(true, k, stage)
+            plot1D.setSize(800, 500)
+            plot1D.show()
+            plot2D.setSize(800, 500)
+            plot2D.show()
+        }
     }
 }

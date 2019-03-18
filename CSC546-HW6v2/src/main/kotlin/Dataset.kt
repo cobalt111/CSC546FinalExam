@@ -18,7 +18,7 @@ class Dataset(var data: ArrayList<Coordinate>, private val k: Int, private val i
     }
 
     private fun randomPoint(): Coordinate {
-        return data[(0..data.size).random()]
+        return data[(0 until data.size).random()]
     }
 
     fun updateCentroidMeans() {
@@ -32,10 +32,9 @@ class Dataset(var data: ArrayList<Coordinate>, private val k: Int, private val i
             centroid.flushClosestPoints()
         var currentDistance: Double
         var lowestDistance: Double
-        var parentCentroid: Centroid
+        var parentCentroid = centroids[0]
         for (point in data) {
             lowestDistance = Double.MAX_VALUE
-            parentCentroid = centroids[0]
             for (centroid in centroids) {
                 currentDistance = distance(point, centroid.coordinate)
                 if (currentDistance < lowestDistance) {
