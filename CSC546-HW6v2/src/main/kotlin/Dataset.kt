@@ -1,8 +1,8 @@
-import java.lang.Math.pow
+import Coordinate.Calculator.distance
 
 class Dataset(var data: ArrayList<Coordinate>, private val k: Int, private val isTwoDimensional: Boolean) {
 
-    var centroids = mutableListOf<Centroid>()
+    internal var centroids = mutableListOf<Centroid>()
 
     init {
         // Randomize the initial starting point of k centroids, with no repeat centroids
@@ -36,20 +36,13 @@ class Dataset(var data: ArrayList<Coordinate>, private val k: Int, private val i
         for (point in data) {
             lowestDistance = Double.MAX_VALUE
             for (centroid in centroids) {
-                currentDistance = distance(point, centroid.coordinate)
+                currentDistance = distance(point, centroid.coordinate, isTwoDimensional)
                 if (currentDistance < lowestDistance) {
                     lowestDistance = currentDistance
                     parentCentroid = centroid
                 }
             }
             parentCentroid.closestDataPoints.add(point)
-        }
-    }
-
-    private fun distance(firstPoint: Coordinate, secondPoint: Coordinate): Double {
-        return when (isTwoDimensional) {
-            true -> Math.sqrt(pow(secondPoint.x - firstPoint.x, 2.0) + pow(secondPoint.y - firstPoint.y, 2.0))
-            false -> Math.abs(secondPoint.x - firstPoint.x)
         }
     }
 }
