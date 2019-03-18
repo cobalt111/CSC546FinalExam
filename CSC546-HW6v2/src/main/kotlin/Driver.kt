@@ -26,8 +26,8 @@ fun main() {
     for (line in oneDimensionalLines)
         rawData1D.add(Coordinate(line.toDouble(), 0.0))
     for (line in twoDimensionalLines) {
-        val dataPoint = line.split(" ")
-        rawData2D.add(Coordinate(dataPoint[0].toDouble(), dataPoint[2].toDouble()))
+        val dataPoint = line.split("  ")
+        rawData2D.add(Coordinate(dataPoint[0].toDouble(), dataPoint[1].toDouble()))
     }
 
     // Create Datasets
