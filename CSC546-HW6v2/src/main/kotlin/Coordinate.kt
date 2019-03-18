@@ -1,4 +1,4 @@
-data class Coordinate(var x: Double, var y: Double) {
+data class Coordinate(internal var x: Double, internal var y: Double) {
 
     companion object Calculator {
         internal fun distance(firstPoint: Coordinate, secondPoint: Coordinate, isTwoDimensional: Boolean): Double {

@@ -1,4 +1,4 @@
-class Centroid(var coordinate: Coordinate, private val isTwoDimensional: Boolean) {
+class Centroid(internal var coordinate: Coordinate) {
 
     internal var closestDataPoints = mutableListOf<Coordinate>()
 

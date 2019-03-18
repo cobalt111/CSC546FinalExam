@@ -1,6 +1,6 @@
 import Coordinate.Calculator.distance
 
-class Dataset(var data: ArrayList<Coordinate>, private val k: Int, private val isTwoDimensional: Boolean) {
+class Dataset(private var data: ArrayList<Coordinate>, private val k: Int, private val isTwoDimensional: Boolean) {
 
     internal var centroids = mutableListOf<Centroid>()
 
@@ -13,7 +13,7 @@ class Dataset(var data: ArrayList<Coordinate>, private val k: Int, private val i
             while (usedPoints.contains(point))
                 point = randomPoint()
             usedPoints.add(point)
-            centroids.add(Centroid(point, isTwoDimensional))
+            centroids.add(Centroid(point))
         }
     }
 
