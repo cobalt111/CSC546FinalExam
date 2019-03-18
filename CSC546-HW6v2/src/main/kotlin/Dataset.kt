@@ -7,7 +7,7 @@ class Dataset(var data: ArrayList<Coordinate>, private val k: Int, private val i
     init {
         // Randomize the initial starting point of k centroids, with no repeat centroids
         var point: Coordinate
-        var usedPoints = mutableListOf<Coordinate>()
+        val usedPoints = mutableListOf<Coordinate>()
         for (i in 1..k) {
             point = randomPoint()
             while (usedPoints.contains(point))
@@ -48,10 +48,9 @@ class Dataset(var data: ArrayList<Coordinate>, private val k: Int, private val i
     }
 
     private fun distance(firstPoint: Coordinate, secondPoint: Coordinate): Double {
-        when (isTwoDimensional)
-        {
-            true -> return Math.sqrt(pow(secondPoint.x - firstPoint.x, 2.0) + pow(secondPoint.y - firstPoint.y, 2.0))
-            false -> return Math.abs(secondPoint.x - firstPoint.x)
+        return when (isTwoDimensional) {
+            true -> Math.sqrt(pow(secondPoint.x - firstPoint.x, 2.0) + pow(secondPoint.y - firstPoint.y, 2.0))
+            false -> Math.abs(secondPoint.x - firstPoint.x)
         }
     }
 }

@@ -3,6 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="cb1fd591-b8de-4f97-8c97-e3b7b7f7f9aa" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../546-HW2" beforeDir="false" afterPath="$PROJECT_DIR$/../546-HW2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Centroid.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Centroid.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Dataset.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Dataset.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Driver.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Driver.kt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -30,23 +33,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/kotlin/Driver.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="744">
-              <caret line="125" selection-start-line="125" selection-end-line="125" />
+            <state relative-caret-position="576">
+              <caret line="114" selection-start-line="114" selection-end-line="114" />
               <folding>
-                <element signature="e#0#262#0" expanded="true" />
+                <element signature="n#!!block;n#DataPlot#0;n#!!block;n#main#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/kotlin/Dataset.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-176">
-              <caret line="20" selection-start-line="20" selection-end-line="20" />
+            <state relative-caret-position="-86">
+              <caret line="24" column="35" selection-start-line="24" selection-start-column="35" selection-end-line="24" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -59,8 +62,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/kotlin/Centroid.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="31" selection-start-column="31" selection-end-column="31" />
+            <state relative-caret-position="108">
+              <caret line="6" column="31" lean-forward="true" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -81,10 +84,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/kotlin/Centroid.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/Coordinate.kt" />
         <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/src/main/kotlin/Plot.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/Centroid.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/Dataset.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/Driver.kt" />
       </list>
@@ -198,6 +201,8 @@
       <updated>1552858556554</updated>
       <workItem from="1552858562125" duration="12530000" />
       <workItem from="1552875466547" duration="3960000" />
+      <workItem from="1552879936430" duration="484000" />
+      <workItem from="1552918092335" duration="1887000" />
     </task>
     <task id="LOCAL-00001" summary="working calculator, need way to plot now">
       <created>1552863545542</created>
@@ -227,23 +232,31 @@
       <option name="project" value="LOCAL" />
       <updated>1552878930337</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="put plotter in iterator function">
+      <created>1552879981960</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1552879981960</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16490000" />
+    <option name="totallyTimeSpent" value="18861000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="36" y="23" width="1644" height="1027" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49920255" visible="true" weight="0.1548065" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49920255" visible="true" weight="0.15855181" />
       <window_info id="Structure" order="1" sideWeight="0.50079745" side_tool="true" weight="0.15293384" />
       <window_info id="Designer" order="2" />
       <window_info id="Learn" order="3" />
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32941177" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32941177" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32941177" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4993758" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -281,7 +294,8 @@
     <MESSAGE value="working calculator, need way to plot now" />
     <MESSAGE value="graphs updated, able to plot, need to make centroids easier to see" />
     <MESSAGE value="added k=3 function, just need to verify 1d graphs" />
-    <option name="LAST_COMMIT_MESSAGE" value="added k=3 function, just need to verify 1d graphs" />
+    <MESSAGE value="put plotter in iterator function" />
+    <option name="LAST_COMMIT_MESSAGE" value="put plotter in iterator function" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="editorHistoryManager">
@@ -313,25 +327,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/kotlin/Centroid.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="31" selection-start-column="31" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/Dataset.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-176">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
+        <state relative-caret-position="108">
+          <caret line="6" column="31" lean-forward="true" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/kotlin/Driver.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="744">
-          <caret line="125" selection-start-line="125" selection-end-line="125" />
+        <state relative-caret-position="576">
+          <caret line="114" selection-start-line="114" selection-end-line="114" />
           <folding>
-            <element signature="e#0#262#0" expanded="true" />
+            <element signature="n#!!block;n#DataPlot#0;n#!!block;n#main#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/Dataset.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-86">
+          <caret line="24" column="35" selection-start-line="24" selection-start-column="35" selection-end-line="24" selection-end-column="35" />
         </state>
       </provider>
     </entry>

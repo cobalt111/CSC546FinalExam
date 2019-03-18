@@ -3,8 +3,7 @@ class Centroid(var coordinate: Coordinate, private val isTwoDimensional: Boolean
     var closestDataPoints = mutableListOf<Coordinate>()
 
     fun updateCoordinate() {
-        // Initialize mean
-        var mean = Coordinate(0.0, 0.0)
+        val mean = Coordinate(0.0, 0.0)
         if (isTwoDimensional) {
             var xMean = 0.0
             var yMean = 0.0
