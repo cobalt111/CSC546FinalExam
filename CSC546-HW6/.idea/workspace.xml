@@ -2,7 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a0b8e4f9-8ca4-422f-8709-b9c7629eac76" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../CSC546-HW6v2/.idea/libraries/jcommon_1_0_23.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CSC546-HW6v2/jcommon-1.0.23.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CSC546-HW6v2/jfreechart-1.0.19.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../546-HW2" beforeDir="false" afterPath="$PROJECT_DIR$/../546-HW2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../CSC546-HW6v2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../CSC546-HW6v2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CSC546-HW6v2/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../CSC546-HW6v2/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CSC546-HW6v2/src/main/kotlin/Dataset.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../CSC546-HW6v2/src/main/kotlin/Dataset.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CSC546-HW6v2/src/main/kotlin/Driver.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../CSC546-HW6v2/src/main/kotlin/Driver.kt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,7 +33,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Dataset.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
+            <state relative-caret-position="306">
               <caret line="17" column="60" selection-start-line="17" selection-start-column="60" selection-end-line="17" selection-end-column="60" />
               <folding>
                 <element signature="e#0#61#0" expanded="true" />
@@ -229,7 +237,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Dataset.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
+        <state relative-caret-position="306">
           <caret line="17" column="60" selection-start-line="17" selection-start-column="60" selection-end-line="17" selection-end-column="60" />
           <folding>
             <element signature="e#0#61#0" expanded="true" />

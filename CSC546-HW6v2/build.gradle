@@ -6,13 +6,12 @@ version '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
-    maven { url 'https://jitpack.io' }
+
 }
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
-    compile 'com.github.holgerbrandl:kravis:-SNAPSHOT'
-    compile 'com.github.holgerbrandl:krangl:-SNAPSHOT'
+
 }
 
 compileKotlin {

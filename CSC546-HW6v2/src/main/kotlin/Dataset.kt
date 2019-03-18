@@ -1,8 +1,8 @@
 import java.lang.Math.pow
 
-class Dataset(private var data: ArrayList<Coordinate>, private val k: Int, private val isTwoDimensional: Boolean) {
+class Dataset(var data: ArrayList<Coordinate>, private val k: Int, private val isTwoDimensional: Boolean) {
 
-    private var centroids = mutableListOf<Centroid>()
+    var centroids = mutableListOf<Centroid>()
 
     init {
         // Randomize the initial starting point of k centroids, with no repeat centroids
