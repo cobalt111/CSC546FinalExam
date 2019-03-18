@@ -12,7 +12,7 @@ import javax.swing.JFrame
 fun main() {
 
     // Set this number to the number of centroids desired
-    val k = 2
+    val k = 3
 
     // Input data from dat files
     var rawData1D: ArrayList<Coordinate> = ArrayList()
@@ -116,13 +116,13 @@ fun main() {
     for (i in 0..10) {
         data1D.updateCentroidMeans()
         data2D.updateCentroidMeans()
-    }
 
-    // Plot the datasets
-    val plot1D = DataPlot(false, k)
-    val plot2D = DataPlot(true, k)
-    plot1D.setSize(800, 500)
-    plot1D.show()
-    plot2D.setSize(800, 500)
-    plot2D.show()
+        // Plot the datasets
+        val plot1D = DataPlot(false, k)
+        val plot2D = DataPlot(true, k)
+        plot1D.setSize(800, 500)
+        plot1D.show()
+        plot2D.setSize(800, 500)
+        plot2D.show()
+    }
 }
