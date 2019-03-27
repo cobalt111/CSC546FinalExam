@@ -23,9 +23,8 @@ class Graph(internal val vertices: List<Vertex>,
 
             for (edge in edgeLookup[minimumVertex]!!.asIterable()) {
                 val distance = distancesToVertices[minimumVertex]!! + edge.weight
-                if (distance < distancesToVertices[edge.secondEnd]!!) {
+                if (distance < distancesToVertices[edge.secondEnd]!!)
                     distancesToVertices[edge.secondEnd] = distance
-                }
             }
         }
         return distancesToVertices

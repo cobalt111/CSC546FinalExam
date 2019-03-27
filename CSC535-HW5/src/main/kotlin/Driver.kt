@@ -136,44 +136,28 @@ fun main() {
     val graphThreeEdges = mutableListOf(
         Edge(1, Vertex.A, Vertex.B),
         Edge(1, Vertex.A, Vertex.E),
-
-        //
         Edge(1, Vertex.B, Vertex.A),
         Edge(1, Vertex.E, Vertex.A),
-        //
-
         Edge(1, Vertex.B, Vertex.C),
-
-        //
         Edge(1, Vertex.C, Vertex.B),
-        //
-
         Edge(1, Vertex.C, Vertex.G),
         Edge(4, Vertex.C, Vertex.J),
         Edge(3, Vertex.C, Vertex.F),
-
-        //
         Edge(1, Vertex.G, Vertex.C),
         Edge(4, Vertex.J, Vertex.C),
         Edge(3, Vertex.F, Vertex.C),
-        //
-
         Edge(1, Vertex.G, Vertex.H),
         Edge(5, Vertex.E, Vertex.D),
         Edge(1, Vertex.D, Vertex.H),
         Edge(2, Vertex.D, Vertex.J),
         Edge(1, Vertex.E, Vertex.G),
         Edge(1, Vertex.D, Vertex.K),
-
-        //
         Edge(1, Vertex.H, Vertex.G),
         Edge(5, Vertex.D, Vertex.E),
         Edge(1, Vertex.H, Vertex.D),
         Edge(2, Vertex.J, Vertex.D),
         Edge(1, Vertex.G, Vertex.E),
         Edge(1, Vertex.K, Vertex.D),
-        //
-
         Edge(1, Vertex.F, Vertex.K)
     )
 
@@ -196,6 +180,7 @@ fun main() {
     graphThreeVertexSpecificEdges.add(Edge(1, Vertex.C, Vertex.B))
     graphThreeVertexSpecificEdges.add(Edge(1, Vertex.C, Vertex.G))
     graphThreeVertexSpecificEdges.add(Edge(4, Vertex.C, Vertex.J))
+    graphThreeVertexSpecificEdges.add(Edge(3, Vertex.C, Vertex.F))
     graphThreeEdgeLookup[Vertex.C] = graphThreeVertexSpecificEdges.toList()
 
     // Edges from D
