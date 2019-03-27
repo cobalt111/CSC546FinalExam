@@ -32,7 +32,23 @@ class Graph(internal val vertices: List<Vertex>,
     }
 
 
-//    fun findShortestBellmanFordPathFrom(startVertex: Vertex): HashMap<Vertex, Int> {
-//
-//    }
+    fun findShortestBellmanFordPathFrom(startVertex: Vertex): HashMap<Vertex, Int> {
+        val distancesToVertices = HashMap<Vertex, Int>()
+        for (vertex in vertices)
+            distancesToVertices[vertex] = Int.MAX_VALUE
+        distancesToVertices[startVertex] = 0
+
+        for (vertex in vertices)
+            for (edge in edges) {
+                val currentDistance = distancesToVertices[edge.firstEnd]!! + edge.weight
+                if (currentDistance < distancesToVertices[edge.secondEnd]!!)
+                    distancesToVertices[edge.secondEnd] = currentDistance
+            }
+
+        for (edge in edges)
+            if (distancesToVertices[edge.firstEnd]!! + edge.weight < distancesToVertices[edge.secondEnd]!!)
+                println("Negative cycle exists")
+
+        return distancesToVertices
+    }
 }
