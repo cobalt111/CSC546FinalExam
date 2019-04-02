@@ -1,4 +1,4 @@
-data class Coordinate(internal val x: Double, internal val y: Double, internal val type: Int) {
+data class Coordinate(internal var x: Double, internal var y: Double, internal var type: Int) {
 
     companion object Calculator {
         // Euclidean distance between two points

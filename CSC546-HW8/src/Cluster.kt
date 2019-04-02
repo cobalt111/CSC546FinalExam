@@ -1,11 +1,13 @@
-class Cluster(internal var centroidCoordinate: Coordinate) {
+class Cluster {
 
-    internal var data = mutableListOf<Coordinate>()
+    internal val centroid = Coordinate(0.0, 0.0, 1)
+    internal val data = mutableListOf<Coordinate>()
     internal var standardDeviations = Pair(0.0, 0.0)
 
     internal fun update() {
         val means = means()
-        centroidCoordinate = Coordinate(means.first, means.second, centroidCoordinate.type)
+        centroid.x = means.first
+        centroid.y = means.second
         standardDeviations = standardDeviations(means)
     }
 
