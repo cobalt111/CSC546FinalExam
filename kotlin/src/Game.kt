@@ -1,7 +1,7 @@
 import java.math.BigInteger
 import java.util.*
 
-class Game(startingPosition: Int, private val endingPosition: Int) {
+class Game(private val startingPosition: Int, private val endingPosition: Int) {
 
     internal val board = Board(startingPosition)
     internal val solutionPath = Stack<Int>()
@@ -19,11 +19,21 @@ class Game(startingPosition: Int, private val endingPosition: Int) {
             for (direction in Direction.values()) {
                 if (movable(direction)) {
                     val adjacentCellIndex = findAdjacentCellIndex(direction)
-                    moveTo(adjacentCellIndex)
-                    if (solvableWithDepthFirstSearch()) return true
-                    else {
-                        currentPosition = positionThisTurn
-                        unMoveFrom(adjacentCellIndex)
+                    if (solutionPath.size < board.numberOfCells - 1) {
+                        if (adjacentCellIndex != endingPosition) {
+                            currentPosition = adjacentCellIndex
+                            moveTo(adjacentCellIndex)
+                            if (solvableWithDepthFirstSearch()) return true
+                            else {
+                                currentPosition = positionThisTurn
+                                unMoveFrom(adjacentCellIndex)
+                            }
+                        }
+                    }
+                    else if (solutionPath.size == board.numberOfCells - 1 && adjacentCellIndex == endingPosition) {
+                        currentPosition = adjacentCellIndex
+                        moveTo(adjacentCellIndex)
+                        return true
                     }
                 }
             }
@@ -44,11 +54,14 @@ class Game(startingPosition: Int, private val endingPosition: Int) {
     }
 
     private fun moveTo(index: Int) {
-        currentPosition = index
         numberOfTotalMoves++
         solutionPath.push(index)
         board.cells[index].filled = true
-//        if (numberOfTotalMoves.mod(BigInteger("10000000")) == BigInteger("0")) board.print()
+        if (numberOfTotalMoves.mod(BigInteger("100000000")) == BigInteger("0")) {
+            println("\nStart: $startingPosition")
+            println("Goal: $endingPosition")
+            println("Moves: $numberOfTotalMoves")
+        }
     }
 
     private fun unMoveFrom(index: Int) {

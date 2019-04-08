@@ -1,15 +1,14 @@
 class Board(startPosition: Int) {
 
-    /*
-    Shape of the board:
+    /* Shape of the board:
 
-                0 0 0 0
-               0 0 0 0 0
-              0 0 0 0 0 0
-             0 0 0 0 0 0 0
-              0 0 0 0 0 0
-               0 0 0 0 0
-                0 0 0 0
+            0 0 0 0
+           0 0 0 0 0
+          0 0 0 0 0 0
+         0 0 0 0 0 0 0
+          0 0 0 0 0 0
+           0 0 0 0 0
+            0 0 0 0
      */
 
     internal val numberOfCells = 37
@@ -20,7 +19,11 @@ class Board(startPosition: Int) {
             cells.add(Cell(false, i))
         cells[startPosition].filled = true
         cells[startPosition].boardSlotNumber = startPosition
+
+
     }
+
+
 
     internal fun print() {
         println("""
