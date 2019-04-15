@@ -1,37 +1,39 @@
 import java.math.BigInteger
 import java.util.*
 
-class Game(private val startingPosition: Int, private val endingPosition: Int) {
+class Game(private val startingPositionIndex: Int, private val endingPositionIndex: Int) {
 
-    internal val board = Board(startingPosition)
+    internal val board = Board(startingPositionIndex)
     internal val solutionPath = Stack<Int>()
     internal var numberOfTotalMoves = BigInteger("0")
-    private var currentPosition = startingPosition
+    private var currentPositionIndex = startingPositionIndex
 
     init {
-        solutionPath.push(startingPosition)
+        solutionPath.push(startingPositionIndex)
     }
 
     internal fun solvableWithDepthFirstSearch(): Boolean {
         if (foundSolution()) return true
         else {
-            val positionThisTurn = currentPosition
+            val positionThisTurn = currentPositionIndex
             for (direction in Direction.values()) {
                 if (movable(direction)) {
                     val adjacentCellIndex = findAdjacentCellIndex(direction)
                     if (solutionPath.size < board.numberOfCells - 1) {
-                        if (adjacentCellIndex != endingPosition) {
-                            currentPosition = adjacentCellIndex
+                        if (adjacentCellIndex != endingPositionIndex) {
+                            currentPositionIndex = adjacentCellIndex
                             moveTo(adjacentCellIndex)
                             if (solvableWithDepthFirstSearch()) return true
                             else {
-                                currentPosition = positionThisTurn
+                                currentPositionIndex = positionThisTurn
                                 unMoveFrom(adjacentCellIndex)
                             }
                         }
                     }
-                    else if (solutionPath.size == board.numberOfCells - 1 && adjacentCellIndex == endingPosition) {
-                        currentPosition = adjacentCellIndex
+                    // Check if we have every other cell on the board in our path other than the goal
+                    // and see if we can move to it
+                    else if (solutionPath.size == board.numberOfCells - 1 && adjacentCellIndex == endingPositionIndex) {
+                        currentPositionIndex = adjacentCellIndex
                         moveTo(adjacentCellIndex)
                         return true
                     }
@@ -41,8 +43,9 @@ class Game(private val startingPosition: Int, private val endingPosition: Int) {
         }
     }
 
+
     private fun foundSolution(): Boolean {
-        return solutionPath.lastElement() == endingPosition && solutionPath.size == board.numberOfCells
+        return solutionPath.lastElement() == endingPositionIndex && solutionPath.size == board.numberOfCells
     }
 
     private fun movable(direction: Direction): Boolean {
@@ -50,7 +53,7 @@ class Game(private val startingPosition: Int, private val endingPosition: Int) {
     }
 
     private fun findAdjacentCellIndex(direction: Direction): Int {
-        return board.cells[currentPosition].adjacentCellsLookup[direction]!!
+        return board.cells[currentPositionIndex].adjacentCellsLookup[direction]!!
     }
 
     private fun moveTo(index: Int) {
@@ -58,8 +61,8 @@ class Game(private val startingPosition: Int, private val endingPosition: Int) {
         solutionPath.push(index)
         board.cells[index].filled = true
         if (numberOfTotalMoves.mod(BigInteger("100000000")) == BigInteger("0")) {
-            println("\nStart: $startingPosition")
-            println("Goal: $endingPosition")
+            println("\nStart: $startingPositionIndex")
+            println("Goal: $endingPositionIndex")
             println("Moves: $numberOfTotalMoves")
         }
     }
