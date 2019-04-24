@@ -1,7 +1,7 @@
 class Population(private val populationSize: Int, private val targetString: String) {
 
     var individuals = mutableListOf<Individual>()
-    private val numberOfSurvivingParents = populationSize / 4
+    private val numberOfMatingParents = populationSize / 4
 
     init {
         (1..populationSize).forEach { _ ->
@@ -13,27 +13,34 @@ class Population(private val populationSize: Int, private val targetString: Stri
     }
 
     fun processGeneration() {
-        val newGeneration = mutableListOf<Individual>()
-        val elites = individuals.take(populationSize * 10 / 100)
-        newGeneration.addAll(elites)
-
-        val mates = individuals.take(numberOfSurvivingParents)
-            .zip(individuals.takeLast(numberOfSurvivingParents))
-
-        while (newGeneration.size < populationSize) {
-            mates.forEach { pair ->
-                val newOffspring = pair.first.crossover(pair.second)
-                newGeneration.add(newOffspring.first)
-                newGeneration.add(newOffspring.second)
-            }
-        }
-
-        individuals = newGeneration.take(populationSize).toMutableList()
-        individuals.takeLast(populationSize * 90 / 100).forEach {
+        val selectedIndividuals = selection()
+        val newGeneration = selectedIndividuals.first.toMutableList()
+        newGeneration.addAll(crossover(selectedIndividuals.second).take(populationSize * 90 / 100))
+        newGeneration.takeLast(populationSize * 90 / 100).forEach {
             it.mutate()
             it.calculateFitness()
         }
-        individuals.sortByDescending { it.fitness }
+        newGeneration.sortByDescending { it.fitness }
+        individuals = newGeneration
+    }
+
+    private fun selection(): Pair<List<Individual>, List<Pair<Individual, Individual>>> {
+        val elites = individuals.take(populationSize * 10 / 100)
+        val mates = individuals.take(numberOfMatingParents)
+            .zip(individuals.take(numberOfMatingParents)).reversed()
+        return Pair(elites, mates)
+    }
+
+    private fun crossover(mates: List<Pair<Individual, Individual>>): MutableList<Individual> {
+        val matedIndividuals = mutableListOf<Individual>()
+        while (matedIndividuals.size < populationSize) {
+            mates.forEach { pair ->
+                val newOffspring = pair.first.mate(pair.second)
+                matedIndividuals.add(newOffspring.first)
+                matedIndividuals.add(newOffspring.second)
+            }
+        }
+        return matedIndividuals
     }
 
     fun printFittestIndividual() {
