@@ -1,7 +1,7 @@
 class Population(private val populationSize: Int, private val targetString: String) {
 
     var individuals = mutableListOf<Individual>()
-    private val numberOfMatingParents = populationSize / 4
+    private val numberOfMutatingParents = populationSize / 4
 
     init {
         (1..populationSize).forEach { _ ->
@@ -26,8 +26,7 @@ class Population(private val populationSize: Int, private val targetString: Stri
 
     private fun selection(): Pair<List<Individual>, List<Pair<Individual, Individual>>> {
         val elites = individuals.take(populationSize * 10 / 100)
-        val mates = individuals.take(numberOfMatingParents)
-            .zip(individuals.take(numberOfMatingParents)).reversed()
+        val mates = individuals.take(numberOfMutatingParents).zip(individuals.take(numberOfMutatingParents)).reversed()
         return Pair(elites, mates)
     }
 
@@ -35,9 +34,9 @@ class Population(private val populationSize: Int, private val targetString: Stri
         val matedIndividuals = mutableListOf<Individual>()
         while (matedIndividuals.size < populationSize) {
             mates.forEach { pair ->
-                val newOffspring = pair.first.mate(pair.second)
-                matedIndividuals.add(newOffspring.first)
-                matedIndividuals.add(newOffspring.second)
+                val newOffspringPair = pair.first.mate(pair.second)
+                matedIndividuals.add(newOffspringPair.first)
+                matedIndividuals.add(newOffspringPair.second)
             }
         }
         return matedIndividuals

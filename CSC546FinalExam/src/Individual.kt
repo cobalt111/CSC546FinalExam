@@ -5,34 +5,34 @@ class Individual(private val targetString: String) {
 
     init {
         val builder = StringBuilder()
-        for (i in 0 until targetString.length)
-            builder.append(Gene.values().random().character)
-
+        targetString.indices.forEach { _ -> builder.append(Gene.values().random().character) }
         chromosome = builder.toString()
     }
 
     fun calculateFitness() {
         fitness = 0
-        val characterPairs = targetString.zip(chromosome!!)
-        for (pair in characterPairs)
+        val alignedCharacters = targetString.zip(chromosome!!)
+        alignedCharacters.forEach { pair ->
             if (pair.first == pair.second)
                 fitness++
+        }
     }
 
     fun mate(mate: Individual): Pair<Individual, Individual> {
-        val crossoverPivot = (0 until (targetString.length - 1)).random()
-        val crossoverEndPivot = (crossoverPivot until targetString.length).random()
+        val crossoverStartPivot = (targetString.indices - 1).random()
+        val crossoverEndPivot = (crossoverStartPivot until targetString.length).random()
 
-        val firstParentGenesToTransfer = chromosome?.substring(crossoverPivot, crossoverEndPivot)
-        val secondParentGenesToTransfer = mate.chromosome?.substring(crossoverPivot, crossoverEndPivot)
+        val firstParentGenesToTransfer = chromosome?.substring(crossoverStartPivot, crossoverEndPivot)
+        val secondParentGenesToTransfer = mate.chromosome?.substring(crossoverStartPivot, crossoverEndPivot)
 
         val firstOffspring = Individual(targetString)
         firstOffspring.chromosome = StringBuilder(chromosome)
-            .replace(crossoverPivot, crossoverEndPivot, secondParentGenesToTransfer)
+            .replace(crossoverStartPivot, crossoverEndPivot, secondParentGenesToTransfer)
             .toString()
+
         val secondOffspring = Individual(targetString)
         secondOffspring.chromosome = StringBuilder(mate.chromosome)
-            .replace(crossoverPivot, crossoverEndPivot, firstParentGenesToTransfer)
+            .replace(crossoverStartPivot, crossoverEndPivot, firstParentGenesToTransfer)
             .toString()
 
         return Pair(firstOffspring, secondOffspring)
@@ -42,7 +42,7 @@ class Individual(private val targetString: String) {
         val numberOfGenesToMutate = (1..3).random()
         val builder = StringBuilder(chromosome)
         (1..numberOfGenesToMutate).forEach { _ ->
-            val indexToChange = (0 until targetString.length).random()
+            val indexToChange = targetString.indices.random()
             builder.replace(indexToChange, indexToChange + 1, Gene.values().random().character)
         }
         chromosome = builder.toString()
